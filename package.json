@@ -6,10 +6,17 @@
   "author": "ozaki25",
   "license": "MIT",
   "scripts": {
-    "start": "npx parcel-bundler public/index.html"
+    "start": "npx parcel-bundler public/index.html",
+    "test": "jest"
   },
   "dependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-jest": "^24.4.0",
+    "jest": "^24.4.0"
   }
 }
