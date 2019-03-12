@@ -4,5 +4,12 @@
   "main": "index.js",
   "repository": "git@github.com:ozaki25/ocr-translate-sample.git",
   "author": "ozaki25",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "npx parcel-bundler public/index.html"
+  },
+  "dependencies": {
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  }
 }
