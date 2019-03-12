@@ -1,0 +1,8 @@
+{
+  "name": "ocr-translate-sample",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ozaki25/ocr-translate-sample.git",
+  "author": "ozaki25",
+  "license": "MIT"
+}
