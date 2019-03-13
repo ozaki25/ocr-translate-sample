@@ -1,10 +1,10 @@
-const url = process.env.API_URL;
+const url = process.env.MOCK_API_URL;
 
 async function translate({ text, from, to }) {
   try {
-    console.log(`${url}?text=${text}&source=${from}&target=${to}`);
+    console.log(`${url}/translate?text=${text}&source=${from}&target=${to}`);
     const response = await fetch(
-      `${url}?text=${text}&source=${from}&target=${to}`,
+      `${url}/translate?text=${text}&source=${from}&target=${to}`,
     ).then(res => res.json());
     console.log(response);
     return response;
