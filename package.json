@@ -7,9 +7,11 @@
   "license": "MIT",
   "scripts": {
     "start": "npx parcel-bundler public/index.html",
+    "start:server": "node server/app.js",
     "test": "jest"
   },
   "dependencies": {
+    "express": "^4.16.4",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
@@ -20,6 +22,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.3.4",
     "babel-jest": "^24.4.0",
+    "dotenv": "^6.2.0",
     "jest": "^24.4.0",
     "jest-fetch-mock": "^2.1.1"
   }
