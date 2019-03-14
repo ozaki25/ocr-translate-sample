@@ -1,12 +1,10 @@
 const url = process.env.API_URL;
 
-async function translate({ text, from, to }) {
+function translate({ text, from, to }) {
   try {
-    const response = await fetch(
-      `${url}?text=${text}&source=${from}&target=${to}`,
-    ).then(res => res.text());
-    console.log(response);
-    return response;
+    return fetch(`${url}?text=${text}&source=${from}&target=${to}`).then(res =>
+      res.text(),
+    );
   } catch (e) {
     console.log(e);
   }
