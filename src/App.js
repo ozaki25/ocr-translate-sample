@@ -2,19 +2,20 @@ import React from 'react';
 import translate from './api/translate';
 
 function App() {
-  const translateText = async () => {
-    const result = await translate({
+  const translateText = async () =>
+    translate({
       text: 'こんにちは',
       from: 'ja',
       to: 'en',
     });
-    console.log(result);
-  };
 
-  React.useEffect(() => {
-    translateText();
+  const [message, setMessage] = React.useState('---');
+
+  React.useEffect(async () => {
+    setMessage(await translateText());
   }, []);
-  return <h1>Hello</h1>;
+
+  return <h1>{message}</h1>;
 }
 
 export default App;
