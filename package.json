@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "tesseract.js": "^1.0.14"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
