@@ -7,7 +7,6 @@
   "license": "MIT",
   "scripts": {
     "start": "npx parcel-bundler public/index.html",
-    "start:server": "node server/app.js",
     "test": "jest"
   },
   "dependencies": {
