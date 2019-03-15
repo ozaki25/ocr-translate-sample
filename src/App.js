@@ -48,19 +48,23 @@ function App() {
   return (
     <>
       <p>Status: {status}</p>
-      <a onClick={onClickCapture}>
-        <Webcam
-          audio={false}
-          ref={webcamEl}
-          videoConstraints={{
-            facingMode: 'environment',
-          }}
-        />
-      </a>
+      {status === 'init' && (
+        <a onClick={onClickCapture}>
+          <Webcam
+            audio={false}
+            ref={webcamEl}
+            videoConstraints={{
+              facingMode: 'environment',
+            }}
+          />
+        </a>
+      )}
       {status === 'translated' && <p>{translated}</p>}
       {status === 'recognizing' && <p>{loading}%</p>}
       {status === 'recognized' && <p>{recognized}</p>}
-      {status === 'uploaded' && <img src={image} alt="投稿されたファイル" />}
+      {['uploaded', 'recognizing'].includes(status) && (
+        <img src={image} alt="投稿されたファイル" />
+      )}
     </>
   );
 }
