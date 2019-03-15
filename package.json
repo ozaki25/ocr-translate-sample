@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "start": "npx parcel-bundler public/index.html",
-    "test": "jest"
+    "build": "npx parcel-bundler build -d build public/index.html",
+    "test": "jest",
+    "deploy": "yarn build --public-url /ocr-translate-sample && cd build && git init && git add -A && git commit -m 'deploy' && git push -f git@github.com:ozaki25/ocr-translate-sample.git master:gh-pages && cd -"
   },
   "dependencies": {
     "react": "^16.8.4",
