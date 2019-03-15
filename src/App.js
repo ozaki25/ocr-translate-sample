@@ -1,23 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
+import Webcam from 'react-webcam';
 import api from './api/translate';
 import tesseract from './utils/tesseract';
 
 function App() {
-  const inputFileEl = useRef(null);
-  const [status, setStatus] = useState(null);
+  const webcamEl = useRef(null);
+  const [status, setStatus] = useState('init');
   const [loading, setLoading] = useState(null);
   const [image, setImage] = useState(null);
   const [recognized, setRecognized] = useState(null);
   const [translated, setTranslated] = useState(null);
 
-  const onChangeFile = () => {
-    const file = inputFileEl.current.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      setImage(reader.result);
-      setStatus('uploaded');
-    };
+  const onClickCapture = () => {
+    const file = webcamEl.current.getScreenshot();
+    setImage(file);
+    setStatus('uploaded');
   };
 
   const recognize = () => {
@@ -50,7 +47,16 @@ function App() {
 
   return (
     <>
-      <input type="file" ref={inputFileEl} onChange={onChangeFile} />
+      <p>Status: {status}</p>
+      <a onClick={onClickCapture}>
+        <Webcam
+          audio={false}
+          ref={webcamEl}
+          videoConstraints={{
+            facingMode: 'environment',
+          }}
+        />
+      </a>
       {status === 'translated' && <p>{translated}</p>}
       {status === 'recognizing' && <p>{loading}%</p>}
       {status === 'recognized' && <p>{recognized}</p>}
