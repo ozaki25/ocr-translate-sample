@@ -53,6 +53,12 @@ function App() {
           <Webcam
             audio={false}
             ref={webcamEl}
+            height="540"
+            width="320"
+            style={{
+              height: '100vh',
+              width: '100vw',
+            }}
             videoConstraints={{
               facingMode: 'environment',
             }}
